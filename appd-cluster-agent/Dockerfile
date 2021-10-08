@@ -1,6 +1,6 @@
 # Make sure that the cluster agent image has the same environment on which it was built on because the
 # binary is dependent on the os and architecture on which it was built.
-FROM alpine:3.9
+FROM alpine:3.11.12
 
 # Install required packages
 RUN apk --update add --no-cache unzip ca-certificates && update-ca-certificates
