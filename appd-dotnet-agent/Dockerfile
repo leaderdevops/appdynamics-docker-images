@@ -1,4 +1,4 @@
-FROM alpine AS builder
+FROM alpine:3.15.4 AS builder
 
 MAINTAINER support@appdynamics.com
 
@@ -27,7 +27,7 @@ RUN if [ "x${APPD_AGENT_SHA256}" != "x" ]; then \
      unzip -oq AppDynamics-DotNetCore-${APPD_AGENT_VERSION}.zip -d /tmp; \
    fi
 
-FROM alpine 
+FROM alpine:3.15.4 
 RUN apk update && apk upgrade && rm -f /var/cache/apk/*
 
 COPY --from=builder /tmp /opt/appdynamics
